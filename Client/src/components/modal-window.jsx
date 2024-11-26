@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { createEntry,getAllEntries,updateEntry } from "../api/job-api-functions";
-import plusSVG from '../assets/green-plus.svg'
 const Modal = ({ onClose, setEntries, initialData = {}, isEditing = false }) => {
     const [company, setCompany] = useState(initialData?.company || "");
     const [vacancy, setVacancy] = useState(initialData?.vacancy || "");
@@ -146,6 +145,7 @@ export const ModalWindow = ({setEntries,setIsModalOpen,isModalOpen,isEditing,ini
   return (
     <div>
       <OpenModalButton onClick={onClickHandler}>
+        Add
       </OpenModalButton>
       {isModalOpen && <Modal onClose={onCloseHandler}
        openModal={setIsModalOpen} setEntries={setEntries} isEditing={isEditing} initialData={initialData}/>}
@@ -220,16 +220,17 @@ export const ModalWindow = ({setEntries,setIsModalOpen,isModalOpen,isEditing,ini
       width: 385px;
       margin-top: 5px;
     `;
-    
-    const OpenModalButton = styled.button`
-      background-image: url(${plusSVG});
-      background-repeat: no-repeat;
-      width: 60px;
-      height: 60px;
-      border: none;
-      background-size: cover;
-      border-radius: 15px;
-      cursor: pointer;
+    const OpenModalButton = styled.button`  
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #00df55;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+    background-color:#00993b;
+    }
     `;
 const SubmitButton=styled.button`
     font-size: 24px;

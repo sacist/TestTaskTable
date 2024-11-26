@@ -6,10 +6,10 @@ require('dotenv').config()
 
 const app = express()
 
-const port = 5000
+const port = 3000
 
 let corsOptions = {
-    origin: ['http://localhost:5173']
+    origin: ['http://localhost:3001']
 }
 app.use(cors(corsOptions))
 app.use(express.json())

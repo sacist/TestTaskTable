@@ -13,6 +13,9 @@ class JobController{
                 responseStatus,
                 notes
             })
+            if(!newJob){
+                return res.status(404).json({error:'Entry was not saved'})
+            }
             await newJob.save()
             res.status(204).json()
         } catch (e) {
